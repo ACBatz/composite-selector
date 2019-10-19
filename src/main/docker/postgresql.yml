@@ -1,0 +1,11 @@
+version: '2'
+services:
+  compositeselector-postgresql:
+    image: postgres:11.4
+    # volumes:
+    #     - ~/volumes/jhipster/CompositeSelector/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=CompositeSelector
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
