@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Property.
+    -->
+    <changeSet id="20191022021121-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="weighting_factors_id"
+                                 baseTableName="property"
+                                 constraintName="fk_property_weighting_factors_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="weighting_factor"/>
+
+        <addForeignKeyConstraint baseColumnNames="limits_id"
+                                 baseTableName="property"
+                                 constraintName="fk_property_limits_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_limit"/>
+
+        <addForeignKeyConstraint baseColumnNames="miscellaneous_constraint_id"
+                                 baseTableName="property"
+                                 constraintName="fk_property_miscellaneous_constraint_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="miscellaneous_constraint"/>
+
+        <addForeignKeyConstraint baseColumnNames="property_id"
+                                 baseTableName="property_composites"
+                                 constraintName="fk_property_composites_property_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="property"/>
+
+        <addForeignKeyConstraint baseColumnNames="composites_id"
+                                 baseTableName="property_composites"
+                                 constraintName="fk_property_composites_composites_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="composite"/>
+        
+    </changeSet>
+</databaseChangeLog>

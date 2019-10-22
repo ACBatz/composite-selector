@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span>Miscellaneous Constraints</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-miscellaneous-constraint" [routerLink]="['/miscellaneous-constraint/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Miscellaneous Constraint
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="miscellaneousConstraints?.length === 0">
+        <span>No miscellaneousConstraints found</span>
+    </div>
+    <div class="table-responsive" *ngIf="miscellaneousConstraints?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Maximize</span></th>
+            <th><span>Minimize</span></th>
+            <th><span>Calculations</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let miscellaneousConstraint of miscellaneousConstraints ;trackBy: trackId">
+                <td><a [routerLink]="['/miscellaneous-constraint', miscellaneousConstraint.id, 'view' ]">{{miscellaneousConstraint.id}}</a></td>
+                <td>{{miscellaneousConstraint.name}}</td>
+                <td>{{miscellaneousConstraint.maximize}}</td>
+                <td>{{miscellaneousConstraint.minimize}}</td>
+                <td>
+                    <span *ngFor="let calculations of miscellaneousConstraint.calculations; let last = last">
+                            <a class="form-control-static" [routerLink]="['/calculation', calculations?.id, 'view' ]">{{calculations.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/miscellaneous-constraint', miscellaneousConstraint.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/miscellaneous-constraint', miscellaneousConstraint.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/miscellaneous-constraint', { outlets: { popup: miscellaneousConstraint.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

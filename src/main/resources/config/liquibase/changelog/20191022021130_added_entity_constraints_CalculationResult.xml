@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity CalculationResult.
+    -->
+    <changeSet id="20191022021130-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="composite_id"
+                                 baseTableName="calculation_result"
+                                 constraintName="fk_calculation_result_composite_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="composite"/>
+
+        <addForeignKeyConstraint baseColumnNames="calculation_id"
+                                 baseTableName="calculation_result"
+                                 constraintName="fk_calculation_result_calculation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="calculation"/>
+
+    </changeSet>
+</databaseChangeLog>

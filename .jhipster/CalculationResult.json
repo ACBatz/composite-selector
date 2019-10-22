@@ -1,0 +1,35 @@
+{
+    "name": "CalculationResult",
+    "fields": [
+        {
+            "fieldName": "ratingFactor",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "composite",
+            "otherEntityRelationshipName": "result",
+            "relationshipName": "composite",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "calculation",
+            "otherEntityRelationshipName": "results",
+            "relationshipName": "calculation",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191022021130",
+    "entityTableName": "calculation_result",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

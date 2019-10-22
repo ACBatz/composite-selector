@@ -1,0 +1,31 @@
+{
+    "name": "Noun",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "calculation",
+            "otherEntityRelationshipName": "noun",
+            "relationshipName": "calculations",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191022021122",
+    "entityTableName": "noun",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

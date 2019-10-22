@@ -1,0 +1,31 @@
+{
+    "name": "UnitOfMeasure",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "limit",
+            "otherEntityRelationshipName": "unitOfMeasure",
+            "relationshipName": "limits",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191022021128",
+    "entityTableName": "unit_of_measure",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -14,6 +14,32 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021120_added_entity_Composite.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021121_added_entity_Property.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021122_added_entity_Noun.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021123_added_entity_Verb.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021124_added_entity_Load.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021125_added_entity_EnvironmentalEffect.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021126_added_entity_MiscellaneousConstraint.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021127_added_entity_Limit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021128_added_entity_UnitOfMeasure.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021129_added_entity_Calculation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021130_added_entity_CalculationResult.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021131_added_entity_WeightingFactor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021132_added_entity_LoadDirection.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021133_added_entity_LoadShear.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20191022021121_added_entity_constraints_Property.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021122_added_entity_constraints_Noun.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021123_added_entity_constraints_Verb.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021124_added_entity_constraints_Load.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021125_added_entity_constraints_EnvironmentalEffect.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021126_added_entity_constraints_MiscellaneousConstraint.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021127_added_entity_constraints_Limit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021128_added_entity_constraints_UnitOfMeasure.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021130_added_entity_constraints_CalculationResult.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021131_added_entity_constraints_WeightingFactor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021132_added_entity_constraints_LoadDirection.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191022021133_added_entity_constraints_LoadShear.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

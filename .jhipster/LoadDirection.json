@@ -1,0 +1,33 @@
+{
+    "name": "LoadDirection",
+    "fields": [
+        {
+            "fieldName": "loadDirectionEnum",
+            "fieldType": "LoadDirectionEnum",
+            "fieldValues": "LONGITUDINAL,TRANSVERSE",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "load",
+            "otherEntityRelationshipName": "loadDirection",
+            "relationshipName": "load",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191022021132",
+    "entityTableName": "load_direction",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

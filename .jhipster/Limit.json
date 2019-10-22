@@ -1,0 +1,44 @@
+{
+    "name": "Limit",
+    "fields": [
+        {
+            "fieldName": "maximum",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "calculation",
+            "otherEntityRelationshipName": "limits",
+            "relationshipName": "calculations",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "unitOfMeasure",
+            "otherEntityRelationshipName": "limits",
+            "relationshipName": "unitOfMeasure"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "property",
+            "otherEntityRelationshipName": "limits",
+            "relationshipName": "property"
+        }
+    ],
+    "changelogDate": "20191022021127",
+    "entityTableName": "limit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

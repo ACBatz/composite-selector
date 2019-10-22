@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span>Limits</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-limit" [routerLink]="['/limit/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create a new Limit
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="limits?.length === 0">
+        <span>No limits found</span>
+    </div>
+    <div class="table-responsive" *ngIf="limits?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Maximum</span></th>
+            <th><span>Value</span></th>
+            <th><span>Calculations</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let limit of limits ;trackBy: trackId">
+                <td><a [routerLink]="['/limit', limit.id, 'view' ]">{{limit.id}}</a></td>
+                <td>{{limit.maximum}}</td>
+                <td>{{limit.value}}</td>
+                <td>
+                    <span *ngFor="let calculations of limit.calculations; let last = last">
+                            <a class="form-control-static" [routerLink]="['/calculation', calculations?.id, 'view' ]">{{calculations.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/limit', limit.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/limit', limit.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/limit', { outlets: { popup: limit.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

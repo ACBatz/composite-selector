@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-property-heading">Create or edit a Property</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name').invalid && (editForm.get('name').dirty || editForm.get('name').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name').errors.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_weightingFactors">Weighting Factors</label>
+                    <select class="form-control" id="field_weightingFactors" name="weightingFactors" formControlName="weightingFactors">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="weightingFactorOption.id === editForm.get('weightingFactors').value?.id ? editForm.get('weightingFactors').value : weightingFactorOption" *ngFor="let weightingFactorOption of weightingfactors; trackBy: trackWeightingFactorById">{{weightingFactorOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_limits">Limits</label>
+                    <select class="form-control" id="field_limits" name="limits" formControlName="limits">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="limitOption.id === editForm.get('limits').value?.id ? editForm.get('limits').value : limitOption" *ngFor="let limitOption of limits; trackBy: trackLimitById">{{limitOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_miscellaneousConstraint">Miscellaneous Constraint</label>
+                    <select class="form-control" id="field_miscellaneousConstraint" name="miscellaneousConstraint" formControlName="miscellaneousConstraint">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="miscellaneousConstraintOption.id === editForm.get('miscellaneousConstraint').value?.id ? editForm.get('miscellaneousConstraint').value : miscellaneousConstraintOption" *ngFor="let miscellaneousConstraintOption of miscellaneousconstraints; trackBy: trackMiscellaneousConstraintById">{{miscellaneousConstraintOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_composites">Composites</label>
+                    <select class="form-control" id="field_composites" multiple name="composites" formControlName="composites">
+                        <option [ngValue]="getSelected(editForm.get('composites').value, compositeOption)" *ngFor="let compositeOption of composites; trackBy: trackCompositeById">{{compositeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

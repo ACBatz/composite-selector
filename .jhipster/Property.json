@@ -1,0 +1,53 @@
+{
+    "name": "Property",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "weightingFactor",
+            "otherEntityRelationshipName": "property",
+            "relationshipName": "weightingFactors",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "limit",
+            "otherEntityRelationshipName": "property",
+            "relationshipName": "limits",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "miscellaneousConstraint",
+            "otherEntityRelationshipName": "property",
+            "relationshipName": "miscellaneousConstraint",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "composite",
+            "otherEntityRelationshipName": "properties",
+            "relationshipName": "composites",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191022021121",
+    "entityTableName": "property",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

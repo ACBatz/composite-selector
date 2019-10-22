@@ -1,0 +1,39 @@
+{
+    "name": "WeightingFactor",
+    "fields": [
+        {
+            "fieldName": "value",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min",
+                "max"
+            ],
+            "fieldValidateRulesMin": 0,
+            "fieldValidateRulesMax": 10
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "calculation",
+            "otherEntityRelationshipName": "weightingFactors",
+            "relationshipName": "calculation",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "property",
+            "otherEntityRelationshipName": "weightingFactors",
+            "relationshipName": "property"
+        }
+    ],
+    "changelogDate": "20191022021131",
+    "entityTableName": "weighting_factor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Noun.
+    -->
+    <changeSet id="20191022021122-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="calculations_id"
+                                 baseTableName="noun"
+                                 constraintName="fk_noun_calculations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="calculation"/>
+
+    </changeSet>
+</databaseChangeLog>

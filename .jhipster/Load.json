@@ -1,0 +1,56 @@
+{
+    "name": "Load",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "isTensileOrCompressive",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isShear",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "calculation",
+            "otherEntityRelationshipName": "loads",
+            "relationshipName": "calculations",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "loadShear",
+            "otherEntityRelationshipName": "load",
+            "relationshipName": "loadShear",
+            "otherEntityField": "id",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "loadDirection",
+            "otherEntityRelationshipName": "load",
+            "relationshipName": "loadDirection",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191022021124",
+    "entityTableName": "load",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

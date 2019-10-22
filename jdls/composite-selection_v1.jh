@@ -1,0 +1,99 @@
+entity Composite {
+	name String required unique
+}
+
+entity Property {
+	name String required unique
+}
+
+entity Noun {
+	name String required unique
+}
+
+entity Verb {
+	name String required unique
+}
+
+entity Load {
+	name String required unique
+    isTensileOrCompressive Boolean
+    isShear Boolean
+}
+
+entity EnvironmentalEffect {
+	name String required unique
+}
+
+entity MiscellaneousConstraint {
+	name String required unique
+    maximize Boolean
+    minimize Boolean
+}
+
+entity Limit {
+    maximum Boolean
+    value Double
+}
+
+entity UnitOfMeasure {
+	name String required unique
+}
+
+entity Calculation {
+	name String required unique
+    description Blob
+}
+
+entity CalculationResult {
+	ratingFactor Double
+}
+
+entity WeightingFactor {
+	value Double
+}
+
+entity LoadDirection {
+	loadDirectionEnum LoadDirectionEnum required unique
+}
+
+enum LoadDirectionEnum {
+	LONGITUDINAL,
+    TRANSVERSE
+}
+
+entity LoadShear {
+	loadShearEnum LoadShearEnum required unique
+}
+
+enum LoadShearEnum {
+	INPLANE,
+    INTERLAMINAR
+}
+
+relationship ManyToOne {
+    UnitOfMeasure{limits} to Limit{unitOfMeasure(name)}
+    Property{weightingFactors} to WeightingFactor{property(name)}
+    Noun{calculations} to Calculation{noun(name)}
+    Verb{calculations} to Calculation{verb(name)}
+    Property{limits} to Limit{property(name)}
+    Property{miscellaneousConstraint} to MiscellaneousConstraint{property(name)}
+}
+
+relationship OneToMany {
+	Calculation{calculationResult} to CalculationResult{calculation}
+    Calculation{weightingFactors} to WeightingFactor{calculation}
+}
+
+relationship OneToOne {
+     CalculationResult{composite(name)} to Composite{calculationResult}
+}
+
+relationship ManyToMany {
+    Property{composites} to Composite{properties(name)}
+    Limit{calculations} to Calculation{limits}
+    EnvironmentalEffect{calculations} to Calculation{environmentalEffects(name)}
+    MiscellaneousConstraint{calculations} to Calculation{MiscConstraints(name)}
+    Load{calculations} to Calculation{loads(name)}
+    LoadShear{load} to Load{loadShear}
+    LoadDirection{load} to Load{loadDirection}
+}

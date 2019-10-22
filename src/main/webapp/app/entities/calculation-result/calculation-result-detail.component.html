@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="calculationResult">
+            <h2><span>Calculation Result</span> {{calculationResult.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Rating Factor</span></dt>
+                <dd>
+                    <span>{{calculationResult.ratingFactor}}</span>
+                </dd>
+                <dt><span>Composite</span></dt>
+                <dd>
+                    <div *ngIf="calculationResult.composite">
+                        <a [routerLink]="['/composite', calculationResult.composite?.id, 'view']">{{calculationResult.composite?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span>Calculation</span></dt>
+                <dd>
+                    <div *ngIf="calculationResult.calculation">
+                        <a [routerLink]="['/calculation', calculationResult.calculation?.id, 'view']">{{calculationResult.calculation?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/calculation-result', calculationResult.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity MiscellaneousConstraint.
+    -->
+    <changeSet id="20191022021126-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="miscellaneous_constraint_id"
+                                 baseTableName="miscellaneous_constraint_calculations"
+                                 constraintName="miscellaneous_constraint_calcu_miscellaneous_constraint_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="miscellaneous_constraint"/>
+
+        <addForeignKeyConstraint baseColumnNames="calculations_id"
+                                 baseTableName="miscellaneous_constraint_calculations"
+                                 constraintName="fk_miscellaneous_constraint_calculations_calculations_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="calculation"/>
+        
+    </changeSet>
+</databaseChangeLog>

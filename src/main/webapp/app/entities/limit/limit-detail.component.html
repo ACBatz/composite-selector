@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="limit">
+            <h2><span>Limit</span> {{limit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Maximum</span></dt>
+                <dd>
+                    <span>{{limit.maximum}}</span>
+                </dd>
+                <dt><span>Value</span></dt>
+                <dd>
+                    <span>{{limit.value}}</span>
+                </dd>
+                <dt><span>Calculations</span></dt>
+                <dd>
+                    <span *ngFor="let calculations of limit.calculations; let last = last">
+                        <a [routerLink]="['/calculation', calculations?.id, 'view' ]">{{calculations.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/limit', limit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

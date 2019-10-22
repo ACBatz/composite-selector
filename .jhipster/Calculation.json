@@ -1,0 +1,88 @@
+{
+    "name": "Calculation",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "calculationResult",
+            "otherEntityRelationshipName": "calculation",
+            "relationshipName": "results"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "weightingFactor",
+            "otherEntityRelationshipName": "calculation",
+            "relationshipName": "weightingFactors"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "noun",
+            "otherEntityRelationshipName": "calculations",
+            "relationshipName": "noun"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "verb",
+            "otherEntityRelationshipName": "calculations",
+            "relationshipName": "verb"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "limit",
+            "otherEntityRelationshipName": "calculations",
+            "relationshipName": "limits",
+            "otherEntityField": "id",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "environmentalEffect",
+            "otherEntityRelationshipName": "calculations",
+            "relationshipName": "environmentalEffects",
+            "otherEntityField": "name",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "miscellaneousConstraint",
+            "otherEntityRelationshipName": "calculations",
+            "relationshipName": "miscConstraints",
+            "otherEntityField": "name",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "load",
+            "otherEntityRelationshipName": "calculations",
+            "relationshipName": "loads",
+            "otherEntityField": "name",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191022021129",
+    "entityTableName": "calculation",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
