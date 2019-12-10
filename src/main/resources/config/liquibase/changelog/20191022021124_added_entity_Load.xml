@@ -44,7 +44,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="load_id, calculations_id" tableName="load_calculations"/>
-        
+
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 
@@ -56,17 +56,17 @@
           This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
           Spring Boot configuration key.
     -->
-    <changeSet id="20191022021124-1-data" author="jhipster" context="faker">
-        <loadData
-                  file="config/liquibase/fake-data/load.csv"
-                  separator=";"
-                  tableName="load">
-            <column name="id" type="numeric"/>
-            <column name="name" type="string"/>
-            <column name="is_tensile_or_compressive" type="boolean"/>
-            <column name="is_shear" type="boolean"/>
-            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
-        </loadData>
-    </changeSet>
+    <!--<changeSet id="20191022021124-1-data" author="jhipster" context="faker">-->
+        <!--<loadData-->
+                  <!--file="config/liquibase/fake-data/load.csv"-->
+                  <!--separator=";"-->
+                  <!--tableName="load">-->
+            <!--<column name="id" type="numeric"/>-->
+            <!--<column name="name" type="string"/>-->
+            <!--<column name="is_tensile_or_compressive" type="boolean"/>-->
+            <!--<column name="is_shear" type="boolean"/>-->
+            <!--&lt;!&ndash; jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove&ndash;&gt;-->
+        <!--</loadData>-->
+    <!--</changeSet>-->
 
 </databaseChangeLog>
